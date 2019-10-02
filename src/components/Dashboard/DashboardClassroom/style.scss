@@ -1,0 +1,57 @@
+.classroom-block {
+
+  .subject {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    .card {
+      border-radius: 11px;
+      border: 2px solid #C8C8C8;
+      text-align: left;
+
+      .header-1 {
+        background-color: #FFB902;
+      }
+
+      .header-2 {
+        background-color: #7BC70C;
+      }
+
+      .header-3 {
+        background-color: #795DCF;
+      }
+
+      header {
+        border-radius: 10px 10px 0 0;
+        color: white;
+        padding-left: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .img-subject {
+          border-radius: 10px 10px 0 0;
+          width: 126px;
+          height: 84px;
+        }
+
+        .subject-label {
+          text-align: left;
+          font-size: 16px;
+          .teacher {
+            font-size: 14px;
+
+          }
+        }
+      }
+
+      main {
+        height: 140px;
+        padding: 16px 14px 20px 12px;
+      }
+    }
+  }
+
+  .subject:last-child {
+    padding-right: 0;
+  }
+}

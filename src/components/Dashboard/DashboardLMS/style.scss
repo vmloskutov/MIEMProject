@@ -1,0 +1,48 @@
+.lms-block {
+  height: 50%;
+
+  hr {
+    padding: 0;
+    margin: 0;
+    height: 2px;
+    border: none;
+    background-color: #a9a9a9;
+  }
+
+  .label {
+    margin-top: 10px;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    height: 20px;
+    background-color: #d3d3d3;
+  }
+
+  .disciplines {
+    text-align: left;
+    padding-left: 100px;
+    cursor: pointer;
+  }
+
+  .year {
+
+    .dropdownYear {
+    }
+
+    .array {
+      margin-right: 20px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .university-disciplines {
+      padding-left: 20px;
+    }
+
+    .specialized-disciplines {
+      padding-left: 20px;
+
+    }
+  }
+}
