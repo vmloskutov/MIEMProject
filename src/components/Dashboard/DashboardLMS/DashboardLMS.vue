@@ -11,22 +11,23 @@
           2019/2020 учебный год
         </div>
         <div class="dropdownYear">
-          <div class="university-disciplines">
-            <div class="label">
-              <img id="unidisc" class="array" src="../../../assets/chevron-up-solid.svg" @click="openMenu2()">
-              Общеуниверситетские дисциплины
-            </div>
-            <div class="unidisciplines">
-              <div
-                v-for="tuniDiscipl in tuniDiscipls"
-                :key="tuniDiscipl"
-                class="disciplines"
-              >
-                {{ tuniDiscipl }}
+          <template  v-for="items in data">
+            <div class="university-disciplines">
+              <div class="label">
+                <img :id="items.id" class="array" src="../../../assets/chevron-up-solid.svg" @click="openMenu2($event)">
+                {{items.titel}}
+              </div>
+              <div :class="items.class">
+                <div
+                  v-for="item in items.subjects"
+                  class="disciplines"
+                >
+                  {{item}}
+                </div>
               </div>
             </div>
-          </div>
-          <div class="specialized-disciplines">
+          </template>
+          <!-- <div class="specialized-disciplines">
             <div class="label">
               <img id="specdisc" class="array" src="../../../assets/chevron-up-solid.svg" @click="openMenu3()">
               Профильные дисциплины
@@ -40,7 +41,7 @@
                 {{ tspecDiscipl }}
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </main>
@@ -48,27 +49,25 @@
 </template>
 
 <script>
+import { getLMSInfo } from '@/api/lms'
+
 
 export default {
   name: 'DashboardLMS',
   data() {
     return {
-      tuniDiscipls: [
-        'Защита информационной среды бизнеса от киберпреступлений и иных угроз',
-        'Обеспечение безопасности материальных ресурсов бизнеса и защита персонала'
-      ],
-      tspecDiscipls: [
-        'Автоматизация проектных работ',
-        'Вычислительные системы и компьютерные сети',
-        'Менеджмент',
-        'Микроконтроллерные системы',
-        'Операционные системы',
-        'Проектирование компьютерных сетей',
-        'Проектирование систем на кристалле'
-      ]
+      data: null
     }
   },
+  created() {
+    this.fetchData()
+  },
   methods: {
+    fetchData() {
+      getLMSInfo().then(response => {
+        this.data = response.data;
+      })
+    },
     openMenu1() {
       const dropdown = document.querySelector('.dropdownYear')
       const array = document.querySelector('#year')
@@ -80,27 +79,29 @@ export default {
         array.style.transform = 'rotate(180deg)'
       }
     },
-    openMenu2() {
-      const dropdown = document.querySelector('.unidisciplines')
-      const array = document.querySelector('#unidisc')
-      if (dropdown.style.display === 'none') {
-        dropdown.style.display = 'block'
-        array.style.transform = 'rotate(0deg)'
+    openMenu2: function($event) {
+      if ($event.target.id === 'unidisc') {
+        const dropdown = document.querySelector('.unidisciplines')
+        const array = document.querySelector('#unidisc')
+        if (dropdown.style.display === 'none') {
+          dropdown.style.display = 'block'
+          array.style.transform = 'rotate(0deg)'
+        } else {
+          dropdown.style.display = 'none'
+          array.style.transform = 'rotate(180deg)'
+        }
       } else {
-        dropdown.style.display = 'none'
-        array.style.transform = 'rotate(180deg)'
+        const dropdown = document.querySelector('.specdisciplines')
+        const array = document.querySelector('#specdisc')
+        if (dropdown.style.display === 'none') {
+          dropdown.style.display = 'block'
+          array.style.transform = 'rotate(0deg)'
+        } else {
+          dropdown.style.display = 'none'
+          array.style.transform = 'rotate(180deg)'
+        }
       }
-    },
-    openMenu3() {
-      const dropdown = document.querySelector('.specdisciplines')
-      const array = document.querySelector('#specdisc')
-      if (dropdown.style.display === 'none') {
-        dropdown.style.display = 'block'
-        array.style.transform = 'rotate(0deg)'
-      } else {
-        dropdown.style.display = 'none'
-        array.style.transform = 'rotate(180deg)'
-      }
+
     }
   }
 }

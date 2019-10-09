@@ -1,5 +1,5 @@
 .classroom-block {
-
+ width: 100%;
   .subject {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -45,6 +45,8 @@
       }
 
       main {
+        background-color: #fff;
+        border-radius: 0 0 10px 10px;
         height: 140px;
         padding: 16px 14px 20px 12px;
       }
@@ -54,4 +56,31 @@
   .subject:last-child {
     padding-right: 0;
   }
+}
+
+.header-1 {
+  border-radius: 10px 10px 0 0;
+  height: 84px;
+  background-image: url("../../../assets/Chemistry.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.header-2 {
+  border-radius: 10px 10px 0 0;
+  height: 84px;
+  background-image: url("../../../assets/History.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.header-3 {
+  border-radius: 10px 10px 0 0;
+  height: 84px;
+  background-image: url("../../../assets/ArtHistory.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
 }

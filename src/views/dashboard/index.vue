@@ -11,7 +11,13 @@ import MyDashboard from '@/components/Dashboard/MyDashboard.vue'
 export default {
   name: 'Dashboard',
   components: {
-    MyDashboard,
+    MyDashboard
+  },
+  mounted() {
+    document.querySelector(".app-main").style.backgroundColor = "#E5E5E5"
+  },
+  beforeDestroy() {
+    document.querySelector(".app-main").style.backgroundColor = "#fff"
   },
   computed: {
     ...mapGetters([

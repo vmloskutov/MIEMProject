@@ -9,12 +9,12 @@
     </el-row>
     <hr>
     <el-row class="second-row">
-      <el-col :span="6">
+      <el-col  :xl="6" :lg="6" :md="8">
         <div class="calendar">
           <DashboardCalendar />
         </div>
       </el-col>
-      <el-col :span="14">
+      <el-col :xl="14" :lg="14" :md="16">
         <div class="main">
           <el-row>
             <el-col :span="24">
@@ -39,9 +39,9 @@
           </el-row>
         </div>
       </el-col>
-      <el-col :span="4">
+      <el-col :xl="4" :lg="4" :md="0" :sm="0">
         <div class="chat">
-          <DashboardChat />
+
         </div>
       </el-col>
     </el-row>
@@ -54,7 +54,6 @@ import DashboardHeader from '@/components/Dashboard/DashboardHeader/DashboardHea
 import DashboardClassroom from '@/components/Dashboard/DashboardClassroom/DashboardClassroom.vue'
 import DashboardLMS from '@/components/Dashboard/DashboardLMS/DashboardLMS.vue'
 import DashboardCalendar from '@/components/Dashboard/DashboardCalendar/DashboardCalendar.vue'
-import DashboardChat from '@/components/Dashboard/DashboardChat/DashboardChat.vue'
 
 export default {
   name: 'Dashboard',
@@ -64,7 +63,6 @@ export default {
     DashboardClassroom,
     DashboardLMS,
     DashboardCalendar,
-    DashboardChat
   }
 }
 </script>
@@ -81,11 +79,11 @@ export default {
 
   .header {
 
-    height: 10vh;
+    height: 10%;
   }
 
   .calendar {
-    height: 90vh;
+    height: 90%;
   }
 
   .main {
@@ -93,7 +91,7 @@ export default {
 
   .chat {
 
-    height: 90vh;
+    height: 90%;
   }
 
   .intro {
@@ -107,10 +105,10 @@ export default {
   }
 
   .classroom {
-    height: 29vh;
+    height: 29%;
   }
 
   .lms {
-    height: 43vh;
+    height: 43%;
   }
 </style>
