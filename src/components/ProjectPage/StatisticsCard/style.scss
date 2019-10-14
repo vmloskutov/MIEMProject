@@ -1,0 +1,51 @@
+.statistics {
+
+  &-row{
+  }
+
+  .semibold {
+    font-family: 'Gilroy Semibold';
+  }
+
+  .ml-2 {
+    margin-left: 20px;
+  }
+
+  .mt-1 {
+    margin-top: 5px;
+  }
+
+  .pt-1 {
+    padding-top: 5px;
+  }
+
+  .grey {
+    color: #797F93;
+  }
+
+
+  &-card {
+    height: 187px;
+    padding: 14px;
+    border-radius: 4px;
+    border: 1px solid #DFE0EB;
+    background-color: white;
+
+    &-number {
+      font-size: 26px;
+      line-height: 31px;
+    }
+
+    &-text {
+      color: #606266;
+      margin-top: 5px;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    &-img {
+    margin-top: 35px;
+    }
+  }
+
+}

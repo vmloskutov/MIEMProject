@@ -1,0 +1,30 @@
+.vacancies-row {
+  margin-top: 20px;
+
+  hr {
+    border: 0.5px solid #E4E7ED;
+  }
+
+  .vacancies-table {
+    border-radius: 4px;
+    border: 1px solid #DFE0EB;
+    background-color: white;
+    border-radius: 4px;
+    padding: 30px 0 0 0 ;
+    color: #303133;
+    font-family: "Gilroy Medium";
+    &-header {
+      margin-bottom: 15px;
+      font-family: "Gilroy Semibold";
+      color: #606266;
+    }
+    &-row {
+      padding: 21px 0 15px 0;
+    }
+
+    &-button {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

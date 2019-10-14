@@ -1,0 +1,48 @@
+.students-row {
+  margin-top: 20px;
+
+  .semibold {
+    font-family: 'Gilroy Semibold';
+  }
+
+  .ml-2 {
+    margin-left: 20px;
+  }
+
+  .mt-1 {
+    margin-top: 5px;
+  }
+
+  .grey {
+    color: #797F93;
+  }
+
+  .students-table {
+    font-size: 15px;
+    line-height: 18px;
+    background-color: white;
+    color: #303133;
+    font-family: "Gilroy Medium";
+    border-radius: 4px;
+    &-about {
+      border-radius: 4px;
+      border: 1px solid #DFE0EB;
+      padding: 20px;
+
+      &-info {
+        display: flex;
+      }
+
+      &-text {
+        margin-left: 30px;
+      }
+    }
+
+    .students-arrow {
+      .arrow {
+        position: absolute;
+        bottom: 20px;
+      }
+    }
+  }
+}

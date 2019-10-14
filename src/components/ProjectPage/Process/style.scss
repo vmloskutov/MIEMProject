@@ -1,0 +1,80 @@
+.process-row {
+  margin-top: 20px;
+
+  .semibold {
+    font-family: 'Gilroy Semibold';
+  }
+
+  .ml-2 {
+    margin-left: 20px;
+  }
+
+  .mt-1 {
+    margin-top: 5px;
+  }
+
+  .pt-1 {
+    padding-top: 5px;
+  }
+
+  .grey {
+    color: #797F93;
+  }
+
+  .last-updates {
+    margin: 15px 0;
+    color: #797F93;
+  }
+
+  hr {
+    margin-left: -20px;
+    margin-right: -20px;
+    border: 1px solid #E4E7ED;
+  }
+
+  .process-table {
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 18px;
+    background-color: white;
+    border-radius: 4px;
+    color: #303133;
+    font-family: "Gilroy Medium";
+    &-main {
+      border: 1px solid #DFE0EB;
+      border-radius: 4px;
+      padding: 20px;
+    }
+    &-header {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-right: 50px;
+      }
+
+      a {
+        text-decoration: underline;
+        color: blue;
+      }
+    }
+    &-row {
+        display: flex;
+        align-items: center;
+    }
+
+    &-line {
+      height: 60px;
+      .process-text {
+        font-size: 15px;
+        line-height: 18px;
+        margin-bottom: 6px;
+      }
+      .process-time {
+        font-size: 12px;
+        line-height: 14px;
+        color: #797F93;
+      }
+    }
+  }
+}

@@ -4,6 +4,26 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 
+@font-face {
+  font-family: 'Gilroy Semibold';
+  src: url('fonts/Gilroy-SemiBold.eot');
+  src: url('fonts/Gilroy-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('fonts/Gilroy-SemiBold.woff') format('woff'),
+  url('fonts/Gilroy-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy Medium';
+  src: url('fonts/Gilroy-Medium.eot');
+  src: url('fonts/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+  url('fonts/Gilroy-Medium.woff') format('woff'),
+  url('fonts/Gilroy-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
