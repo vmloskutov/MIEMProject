@@ -14,9 +14,7 @@
         <el-col :span="8" :offset="1">
           Необходимые дополнительно для выполнения проекта дисциплины
         </el-col>
-        <el-col :span="3">
-
-        </el-col>
+        <el-col :span="3" />
       </el-row>
       <hr>
       <el-row class="vacancies-table-row">

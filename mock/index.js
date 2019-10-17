@@ -5,12 +5,22 @@ import user from './user'
 import table from './table'
 import classroom from './classroom'
 import lms from './lms'
+import students from './students'
+import process_trello from './process_trello'
+import process_gitlab from './process_gitlab'
+import project from './project'
+import statisticks_card from './statisticks_card'
 
 const mocks = [
   ...user,
   ...table,
   ...classroom,
-  ...lms
+  ...lms,
+  ...students,
+  ...process_trello,
+  ...process_gitlab,
+  ...project,
+  ...statisticks_card
 ]
 
 // for front mock

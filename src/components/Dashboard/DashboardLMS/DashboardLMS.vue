@@ -11,18 +11,18 @@
           2019/2020 учебный год
         </div>
         <div class="dropdownYear">
-          <template  v-for="items in data">
+          <template v-for="items in data">
             <div class="university-disciplines">
               <div class="label">
                 <img :id="items.id" class="array" src="../../../assets/chevron-up-solid.svg" @click="openMenu2($event)">
-                {{items.titel}}
+                {{ items.titel }}
               </div>
               <div :class="items.class">
                 <div
                   v-for="item in items.subjects"
                   class="disciplines"
                 >
-                  {{item}}
+                  {{ item }}
                 </div>
               </div>
             </div>
@@ -51,7 +51,6 @@
 <script>
 import { getLMSInfo } from '@/api/lms'
 
-
 export default {
   name: 'DashboardLMS',
   data() {
@@ -65,7 +64,7 @@ export default {
   methods: {
     fetchData() {
       getLMSInfo().then(response => {
-        this.data = response.data;
+        this.data = response.data
       })
     },
     openMenu1() {
@@ -101,7 +100,6 @@ export default {
           array.style.transform = 'rotate(180deg)'
         }
       }
-
     }
   }
 }

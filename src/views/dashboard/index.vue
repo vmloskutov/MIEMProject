@@ -14,10 +14,10 @@ export default {
     MyDashboard
   },
   mounted() {
-    document.querySelector(".app-main").style.backgroundColor = "#E5E5E5"
+    document.querySelector('.app-main').style.backgroundColor = '#E5E5E5'
   },
   beforeDestroy() {
-    document.querySelector(".app-main").style.backgroundColor = "#fff"
+    document.querySelector('.app-main').style.backgroundColor = '#fff'
   },
   computed: {
     ...mapGetters([

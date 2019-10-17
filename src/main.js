@@ -6,7 +6,8 @@ import ElementUI from 'element-ui'
 import HighchartsVue from 'highcharts-vue'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
-
+var moment = require('moment')
+moment().format()
 import '@/styles/index.scss' // global css
 
 import App from './App'

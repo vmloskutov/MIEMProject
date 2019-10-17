@@ -8,7 +8,7 @@
         <div class="statistics-period">
           Период: с 1 по 31 октября
         </div>
-        <highcharts class="chart month" :options="chartOptions"></highcharts>
+        <highcharts class="chart month" :options="chartOptions" />
         <div class="buttons">
           <el-radio v-model="radio" label="1" @change="chartChange">По месяцам</el-radio>
           <el-radio v-model="radio" label="2" @change="chartChange">По циклам</el-radio>
@@ -67,12 +67,12 @@ export default {
       chartOptions: {
         title: {
           text: ''
-         },
-         credits: {
-            enabled: false
+        },
+        credits: {
+          enabled: false
         },
         yAxis: {
-          opposite:true,
+          opposite: true,
           title: {
             enabled: false
           },
@@ -88,48 +88,46 @@ export default {
           y: -5,
           x: -30
         },
-         xAxis: {
-             categories: ['1.10', '07.10', '14.10', '21.10', '28.10']
-         },
-         series: [{
-             type: 'column',
-             name: 'Петр',
-             color: '#0486FE',
-             pointWidth: 20,
-             data: [3, 2, 1, 3, 4]
-         }, {
-             type: 'column',
-             name: 'Дарья',
-             color: '#FF3D00',
-             pointWidth: 20,
-             data: [4, 3, 3, 9, 0]
-         }, {
-             type: 'spline',
-             name: 'Среднее',
-             color: '#00C54F',
-             data: [3.5, 2.5, 2, 6, 2],
-             marker: {
-                 lineWidth: 2,
-                 lineColor: '#00C54F',
-                 fillColor: 'white'
-             }
-         }
-       ]
-     }
-   }
- 
+        xAxis: {
+          categories: ['1.10', '07.10', '14.10', '21.10', '28.10']
+        },
+        series: [{
+          type: 'column',
+          name: 'Петр',
+          color: '#0486FE',
+          pointWidth: 20,
+          data: [3, 2, 1, 3, 4]
+        }, {
+          type: 'column',
+          name: 'Дарья',
+          color: '#FF3D00',
+          pointWidth: 20,
+          data: [4, 3, 3, 9, 0]
+        }, {
+          type: 'spline',
+          name: 'Среднее',
+          color: '#00C54F',
+          data: [3.5, 2.5, 2, 6, 2],
+          marker: {
+            lineWidth: 2,
+            lineColor: '#00C54F',
+            fillColor: 'white'
+          }
+        }
+        ]
+      }
+    }
   },
   methods: {
-    chartChange: function () {
-      let chart = this.chartOptions
-      if (this.radio === "1") {
+    chartChange: function() {
+      const chart = this.chartOptions
+      if (this.radio === '1') {
         chart.xAxis.categories = ['1.10', '07.10', '14.10', '21.10', '28.10']
         chart.series[0].data = [3, 2, 1, 3, 4]
         chart.series[1].data = [4, 3, 3, 9, 0]
         chart.series[2].data = [3.5, 2.5, 2, 6, 2]
-
       }
-      if (this.radio === "2") {
+      if (this.radio === '2') {
         chart.xAxis.categories = ['2 цикл', '3 цикл', '4 цикл', '5 цикл', '6 цикл']
         chart.series[0].data = [20, 22, 15, 30, 14]
         chart.series[1].data = [24, 23, 13, 29, 10]

@@ -1,17 +1,17 @@
 <template>
   <el-row class="classroom-block">
-    <el-col :span="8" class="subject" v-for="item in data">
+    <el-col v-for="item in data" :span="8" class="subject">
       <div class="card">
         <header :class="item.header">
           <div class="subject-label">
-            {{item.titel}}
+            {{ item.titel }}
             <div class="teacher">
-              {{item.teacher}}
+              {{ item.teacher }}
             </div>
           </div>
         </header>
         <main>
-          {{item.message}}
+          {{ item.message }}
         </main>
       </div>
     </el-col>
@@ -25,7 +25,7 @@ export default {
   name: 'DashboardClassroom',
   data() {
     return {
-      data: null,
+      data: null
     }
   },
   created() {
@@ -34,7 +34,7 @@ export default {
   methods: {
     fetchData() {
       getClassroomInfo().then(response => {
-        this.data = response.data;
+        this.data = response.data
       })
     }
   }

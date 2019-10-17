@@ -5,88 +5,83 @@
         <el-col :span="12" class="process-table-main">
           <el-row class="process-table-row">
             <el-col :span="4" class="process-table-header">
-              <img src="@/assets/trello-icon.svg" />
+              <img src="@/assets/trello-icon.svg">
             </el-col>
             <el-col :span="20" class="process-table-header">
-               <span class="semibold">Trello</span> <a>https://trello.com/b/UrvrCe4N/19112...</a>
+              <span class="semibold">Trello</span> <a>{{ data_trello.link }}</a>
             </el-col>
           </el-row>
           <el-row class="process-table-row">
             <div class="last-updates semibold">Последние обновления</div>
           </el-row>
-          <el-row class="process-table-line">
+          <div v-for="(data, index) in data_trello.trello" class="">
+            <el-row class="process-table-line">
               <div class="process-text">
-                Гольцман Григорий переместил(а) карточку Презентация на в список Сделано на доске Проектная работа               </div>
-              <div class="process-time">
-                2 часа наза
+                {{ data.update }}
               </div>
-          </el-row>
-          <hr>
-          <el-row class="process-table-line">
-              <div class="process-text">
-                Гольцман Григорий прекрепил(а) Учебник по квантовой физике к карточке Полезные материалы на доске Проектная работа </div>
               <div class="process-time">
-                5 часа наза
+                {{ data.time }}
               </div>
-          </el-row>
-          <hr>
-          <el-row class="process-table-line">
-              <div class="process-text">
-                Павел Петров прекрепил(а) Расчеты к карточке Задания на проверку на доске Проектная работа                </div>
-              <div class="process-time">
-                вчера
-              </div>
-          </el-row>
+            </el-row>
+            <hr v-if="index !== data_trello.trello.length - 1">
+          </div>
         </el-col>
         <el-col :span="12" class="process-table-main">
           <el-row class="process-table-row">
             <el-col :span="4" class="process-table-header">
-                <img src="@/assets/gitlab-icon.svg" />
+              <img src="@/assets/gitlab-icon.svg">
             </el-col>
             <el-col :span="20" class="process-table-header">
-              <span class="semibold">Gitlab</span> <a>https://docs.gitlab.com/ee/user/operati...</a>
+              <span class="semibold">Gitlab</span> <a>{{ data_gitlab.link }}</a>
             </el-col>
           </el-row>
           <el-row class="process-table-row">
-              <div class="last-updates semibold">Последние обновления</div>
+            <div class="last-updates semibold">Последние обновления</div>
           </el-row>
-          <el-row class="process-table-line">
+          <div v-for="(data, index) in data_gitlab.git" class="">
+            <el-row class="process-table-line">
               <div class="process-text">
-                Yuri Strelnikov @UriStr Commented on commit 60e32973 "Spinner added, search case fixed"
+                {{ data.update }}
               </div>
               <div class="process-time">
-                2 часа наза
+                {{ data.time }}
               </div>
-          </el-row>
-          <hr>
-          <el-row class="process-table-line">
-              <div class="process-text">
-                Vladislav Petrochenko @v.petrochenko.w Pushed to branch hm3 commit 60e32973 "initail commit"
-
-              </div>
-              <div class="process-time">
-                10 часов наза
-              </div>
-          </el-row>
-          <hr>
-          <el-row class="process-table-line">
-              <div class="process-text">
-                Vladislav Petrochenko @v.petrochenko.w Pushed to branch hm2-complete cf5c6d01 · исправил ошибку в валидаторе
-              </div>
-              <div class="process-time">
-                вчера
-              </div>
-          </el-row>
+            </el-row>
+            <hr v-if="index !== data_gitlab.git.length - 1">
+          </div>
         </el-col>
       </el-row>
     </el-col>
   </el-row>
+  </el-col>
+  </el-row>
 </template>
 
 <script>
+import { getProcessTrelloInfo } from '@/api/process_trello'
+import { getProcessGitlabInfo } from '@/api/process_gitlab'
 
 export default {
-  name: 'Process'
+  name: 'Process',
+  data() {
+    return {
+      data_trello: null,
+      data_gitlab: null
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      getProcessTrelloInfo().then(response => {
+        this.data_trello = response.data
+      })
+      getProcessGitlabInfo().then(response => {
+        this.data_gitlab = response.data
+      })
+    }
+  }
 }
 
 </script>

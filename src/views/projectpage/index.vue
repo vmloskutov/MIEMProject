@@ -14,10 +14,10 @@ export default {
     MyProjectPage
   },
   mounted() {
-    document.querySelector(".app-main").style.backgroundColor = "#F5F7FA"
+    document.querySelector('.app-main').style.backgroundColor = '#F5F7FA'
   },
   beforeDestroy() {
-    document.querySelector(".app-main").style.backgroundColor = "#fff"
+    document.querySelector('.app-main').style.backgroundColor = '#fff'
   },
   computed: {
     ...mapGetters([

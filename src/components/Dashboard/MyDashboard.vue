@@ -9,7 +9,7 @@
     </el-row>
     <hr>
     <el-row class="second-row">
-      <el-col  :xl="6" :lg="6" :md="8">
+      <el-col :xl="6" :lg="6" :md="8">
         <div class="calendar">
           <DashboardCalendar />
         </div>
@@ -40,9 +40,7 @@
         </div>
       </el-col>
       <el-col :xl="4" :lg="4" :md="0" :sm="0">
-        <div class="chat">
-
-        </div>
+        <div class="chat" />
       </el-col>
     </el-row>
   </div>
@@ -62,7 +60,7 @@ export default {
     DashboardHeader,
     DashboardClassroom,
     DashboardLMS,
-    DashboardCalendar,
+    DashboardCalendar
   }
 }
 </script>

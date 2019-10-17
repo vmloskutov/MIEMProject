@@ -21,10 +21,12 @@
             <img src="@/assets/student-1.svg" style="border-radius: 50%">
             <div class="ml-2 students-table-about-text">
               <div class="students-table-about-name semibold">
-                Павел Петров
+                <!-- Павел Петров -->
+                {{ data[0].name }}
               </div>
               <div class="grey">
-                Программист,<br>БИВ172
+                <!-- Программист,<br>БИВ172 -->
+                {{ data[0].role }},<br>{{ data[0].group }}
               </div>
             </div>
           </el-col>
@@ -32,15 +34,17 @@
             <div class="students-table-telnum-title semibold">
               Телефон:
             </div>
-              +7 (903) 712-32-21
+            <!-- +7 (903) 712-32-21 -->
+            {{ data[0].telnum }}
             <div class="students-table-email-title semibold mt-1">
               Электронная почта:
             </div>
-              ppetrov@hse.ru
+            <!-- ppetrov@hse.ru -->
+            {{ data[0].email }}
           </el-col>
           <el-col :span="1" class="students-arrow">
             <svg class="arrow" width="28" height="11" viewBox="0 0 28 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.14642 5.05405H26.1048M26.1048 5.05405L22.0575 1M26.1048 5.05405L22.0575 9.10811" stroke="#0486FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1.14642 5.05405H26.1048M26.1048 5.05405L22.0575 1M26.1048 5.05405L22.0575 9.10811" stroke="#0486FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </el-col>
         </el-col>
@@ -74,15 +78,15 @@
             <div class="students-table-telnum-title semibold">
               Телефон:
             </div>
-              +7 (903) 214-91-52
+            +7 (903) 214-91-52
             <div class="students-table-email-title semibold mt-1">
               Электронная почта:
             </div>
-              dmkuznez@hse.ru
+            dmkuznez@hse.ru
           </el-col>
           <el-col :span="1" class="students-arrow">
             <svg class="arrow" width="28" height="11" viewBox="0 0 28 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.14642 5.05405H26.1048M26.1048 5.05405L22.0575 1M26.1048 5.05405L22.0575 9.10811" stroke="#0486FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1.14642 5.05405H26.1048M26.1048 5.05405L22.0575 1M26.1048 5.05405L22.0575 9.10811" stroke="#0486FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </el-col>
         </el-col>
@@ -92,9 +96,25 @@
 </template>
 
 <script>
+import { getStudentsInfo } from '@/api/students'
 
 export default {
-  name: 'Students'
+  name: 'Students',
+  data() {
+    return {
+      data: null
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      getStudentsInfo().then(response => {
+        this.data = response.data
+      })
+    }
+  }
 }
 
 </script>

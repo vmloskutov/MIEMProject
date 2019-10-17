@@ -4,13 +4,13 @@
     <el-row class="project-label">
       <el-col :span="20" :offset="2">
         <div class="project-number">
-          Проект #208, практико-ориентированный
+          {{ data.number }}
         </div>
         <div class="project-titel-rus">
-          Компактный квантовый генератор случайных чисел
+          {{ data.name_rus }}
         </div>
         <div class="project-titel-eng">
-          Compact Quantum Random Number Generator
+          {{ data.name_eng }}
         </div>
       </el-col>
     </el-row>
@@ -18,7 +18,7 @@
     <el-row class="information-label">
       <el-col :span="13" :offset="2">
         <div class="information-titel">
-            Общая информация о проекте
+          Общая информация о проекте
         </div>
         <hr>
       </el-col>
@@ -27,11 +27,11 @@
     <el-row class="work-project-label">
       <el-col :span="13" :offset="2">
         <div class="work-project-titel semibold">
-            Работа в проекте
+          Работа в проекте
         </div>
         <hr>
         <div class="work-project-titel-1 semibold">
-            Свободные вакансии в проекте
+          Свободные вакансии в проекте
         </div>
       </el-col>
     </el-row>
@@ -39,7 +39,7 @@
     <el-row class="work-project-label">
       <el-col :span="13" :offset="2">
         <div class="work-project-titel-1 semibold">
-            Студенты записанные в проект
+          Студенты записанные в проект
         </div>
       </el-col>
     </el-row>
@@ -47,7 +47,7 @@
     <el-row class="work-project-label">
       <el-col :span="13" :offset="2">
         <div class="work-project-titel-1 semibold">
-            Рабочий процесс
+          Рабочий процесс
         </div>
       </el-col>
     </el-row>
@@ -55,7 +55,7 @@
     <el-row class="work-project-label">
       <el-col :span="13" :offset="2">
         <div class="work-project-titel semibold">
-            Работа в проекте
+          Статистика
         </div>
         <hr>
       </el-col>
@@ -73,16 +73,10 @@ import Process from '@/components/ProjectPage/Process/Process.vue'
 import StatisticsCard from '@/components/ProjectPage/StatisticsCard/StatisticsCard.vue'
 import Statistics from '@/components/ProjectPage/Statistics/Statistics.vue'
 
-
-
+import { getProjectInfo } from '@/api/project'
 
 export default {
   name: 'ProjectPage',
-  data() {
-        return {
-
-        };
-  },
   components: {
     MainInformation,
     FreeVacancies,
@@ -90,6 +84,21 @@ export default {
     Process,
     StatisticsCard,
     Statistics
+  },
+  data() {
+    return {
+      data: null
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      getProjectInfo().then(response => {
+        this.data = response.data
+      })
+    }
   }
 }
 

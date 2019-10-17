@@ -2,55 +2,71 @@
   <el-row class="statistics-row">
     <el-col :span="3" :offset="2" class="statistics-card">
       <div class="statistics-card-number semibold">
-        12
+        {{ data[0].number }}
       </div>
       <div class="statistics-card-text">
-        Новых задач
+        {{ data[0].status }}
       </div>
       <div class="statistics-card-img">
-        <img src="@/assets/new-tasks.svg" />
+        <img src="@/assets/new-tasks.svg">
       </div>
     </el-col>
     <el-col :span="3" :offset="1" class="statistics-card">
       <div class="statistics-card-number semibold">
-        04
+        {{ data[1].number }}
       </div>
       <div class="statistics-card-text">
-        Задачи в работе
+        {{ data[1].status }}
       </div>
       <div class="statistics-card-img">
-        <img src="@/assets/in-work-tasks.svg" />
+        <img src="@/assets/in-work-tasks.svg">
       </div>
     </el-col>
     <el-col :span="3" :offset="1" class="statistics-card">
       <div class="statistics-card-number semibold">
-        03
+        {{ data[2].number }}
       </div>
       <div class="statistics-card-text">
-        Задачи отложены
+        {{ data[2].status }}
       </div>
       <div class="statistics-card-img">
-        <img src="@/assets/wait-tasks.svg" />
+        <img src="@/assets/wait-tasks.svg">
       </div>
     </el-col>
     <el-col :span="3" :offset="1" class="statistics-card">
       <div class="statistics-card-number semibold">
-        10
+        {{ data[3].number}}
       </div>
       <div class="statistics-card-text">
-        Задач закрыто
+        {{ data[3].status }}
       </div>
       <div class="statistics-card-img">
-        <img src="@/assets/done-tasks.svg" />
+        <img src="@/assets/done-tasks.svg">
       </div>
     </el-col>
   </el-row>
 </template>
 
 <script>
+import { getStatisticksCardInfo } from '@/api/statisticks_card'
 
 export default {
-  name: 'StatisticsCard'
+  name: 'StatisticsCard',
+  data() {
+    return {
+      data: null
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      getStatisticksCardInfo().then(response => {
+        this.data = response.data
+      })
+    }
+  }
 }
 
 </script>
